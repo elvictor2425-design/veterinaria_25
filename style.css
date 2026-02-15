@@ -1,0 +1,385 @@
+/* Fichero: style.css */
+
+/* Variables de Color Globales */
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #18BC9C;
+    --accent-color: #F39C12;
+    --light-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --light-text: #ffffff;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos Generales del Body */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--dark-text);
+    scroll-padding-top: 70px; /* Ajuste para el menú fijo */
+}
+
+/* Scroll Suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-brand .fa-paw {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* --- Sección de Inicio (Banner) --- */
+.inicio-section {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee') no-repeat center center;
+    background-size: cover;
+    filter: brightness(0.5); /* Oscurece la imagen para que el texto resalte */
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-cta {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--light-text);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: #15a589;
+    transform: scale(1.05);
+}
+
+/* --- Títulos de Sección --- */
+h2 {
+    font-weight: bold;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+}
+
+
+/* --- Sección de Servicios --- */
+.servicio-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.servicio-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.servicio-card .card-body {
+    padding: 30px;
+}
+
+.servicio-card .card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: -60px auto 20px;
+    position: relative;
+    z-index: 1;
+    border: 3px solid var(--light-text);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* --- Sección Equipo --- */
+.equipo-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.equipo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.equipo-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto 0;
+    border: 5px solid var(--light-text);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* --- Sección Testimonios (Clientes) --- */
+.testimonial-card {
+    background: var(--light-bg);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; /* Para que el borde animado no se salga */
+    border: 3px solid transparent;
+    animation: rainbow-border 5s linear infinite;
+    margin: 10px; /* Margen para evitar que se peguen */
+}
+
+/* Animación de borde arcoíris */
+@keyframes rainbow-border {
+    0% { border-color: #ff0000; }
+    16% { border-color: #ff7f00; }
+    33% { border-color: #ffff00; }
+    50% { border-color: #00ff00; }
+    66% { border-color: #0000ff; }
+    83% { border-color: #4b0082; }
+    100% { border-color: #9400d3; }
+}
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid var(--secondary-color);
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Animación de latido */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.testimonial-card .fa-quote-left {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.2;
+}
+
+.testimonial-card p {
+    font-style: italic;
+}
+
+.testimonial-card .client-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 1rem;
+}
+
+.rating .fas {
+    color: var(--accent-color);
+}
+
+/* Controles del carrusel personalizados */
+.custom-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.custom-carousel-control:hover {
+    background-color: var(--secondary-color);
+    opacity: 1;
+}
+
+.custom-carousel-control.carousel-control-prev {
+    left: -60px; /* Posición fuera del carrusel */
+}
+
+.custom-carousel-control.carousel-control-next {
+    right: -60px; /* Posición fuera del carrusel */
+}
+
+
+/* --- Sección de Contacto --- */
+.contacto-info-card, .formulario-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    height: 100%;
+}
+
+.contacto-info-card {
+    background: linear-gradient(135deg, var(--primary-color), #4e6a85);
+    color: var(--light-text);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contacto-info-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.contacto-info-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-item .fas, .contact-item .fab {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.contacto-info-card a {
+    color: var(--light-text);
+    transition: color 0.3s;
+}
+
+.contacto-info-card a:hover {
+    color: var(--accent-color);
+}
+
+.formulario-card .form-control {
+    border-radius: 8px;
+    padding: 12px;
+}
+.formulario-card .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(24, 188, 156, 0.25);
+}
+
+.formulario-card .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.formulario-card .btn-primary:hover {
+    background-color: #1e2b37;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color);
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: var(--accent-color) !important;
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Dispositivos pequeños (móviles) */
+@media (max-width: 767.98px) {
+    .inicio-section {
+        height: 50vh;
+    }
+
+    h1.display-3 {
+        font-size: 2.5rem;
+    }
+
+    .custom-carousel-control.carousel-control-prev {
+        left: -10px;
+    }
+    
+    .custom-carousel-control.carousel-control-next {
+        right: -10px;
+    }
+
+    .carousel-inner {
+        padding: 0;
+    }
+}
+
+/* Dispositivos medianos (tablets) */
+@media (max-width: 991.98px) {
+    .custom-carousel-control.carousel-control-prev {
+        left: -30px;
+    }
+    
+    .custom-carousel-control.carousel-control-next {
+        right: -30px;
+    }
+}
